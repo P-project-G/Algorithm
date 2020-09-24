@@ -8,11 +8,12 @@ H-Index는 과학자의 생산성과 영향력을 나타내는 지표입니다.
 이 과학자의 H-Index를 return 하도록 solution 함수를 작성해주세요.
 그대의 눈동자에 cheers"""
 def solution(citations):
+    answer=0
     citations.sort(reverse=True)
     for i in range (len(citations)):
         if citations[i]>=i+1:
             answer=i+1
-    return 0
+    return answer
 
 if __name__ == '__main__':
     #citations=[3,0,6,1,5]
