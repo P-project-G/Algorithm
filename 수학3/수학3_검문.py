@@ -45,8 +45,9 @@ answer=[]
 gcd = 0
 for i in range (n):
     num.append(int(input()))
+    if i == 1:
+        gcd = abs(num[i]-num[i-1])
     gcd = math.gcd(abs(num[i]-num[i-1]), gcd) # 이전 약수와, 둘을 뺀 약수의 최대공약수구하기
-    print(gcd)
 gcd_a = int(gcd ** 0.5) # 시간초과 대비하여 최대공약수의 제곱근 만큼 for문
 
 for i in range(2, gcd_a+1):
