@@ -64,6 +64,25 @@ class Set:
     def __str__(self): # 출력 설정정
        return "{"+str(self.data).strip('[]')+"}"
 
+    def __ior__(self,other):
+        for i in other.data:
+            if i not in self.data:
+                self.data.append(i)
+        return self
+
+    def __iand__(self,other):
+        for i in self.data:
+            if i not in other.data:
+                self.data.remove(i)
+        return self
+
+    def __isub__(self,other):
+        for i in other.data:
+            if i in self.data:
+                self.data.remove(i)
+        return self
+
+
 a=Set([1,2,3,4])
 b=Set([1,2,3,4])
 
