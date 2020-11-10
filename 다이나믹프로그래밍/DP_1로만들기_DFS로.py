@@ -3,6 +3,8 @@ def DFS(N, cnt):
     if N == 1:
         if cnt < min_cnt:
             min_cnt = cnt
+    elif cnt >= min_cnt:
+        return
     else:
         if N % 3 == 0:
             DFS(N // 3, cnt+1)
