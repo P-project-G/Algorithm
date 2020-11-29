@@ -26,6 +26,7 @@ k = int(sys.stdin.readline())
 s = [[] for _ in range(v + 1)]
 dp = [inf] * (v + 1)
 heap = []
+
 def dijkstra(start):
     dp[start] = 0
     heappush(heap, [0, start])
