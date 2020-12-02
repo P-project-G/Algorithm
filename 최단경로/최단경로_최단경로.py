@@ -42,6 +42,7 @@ for i in range(e):
     u, v, w = map(int, sys.stdin.readline().split())
     s[u].append([v, w])
 dijkstra(k)
+print(dp)
 for i in dp[1:]:
     print(i if i != inf else "INF")
 """
