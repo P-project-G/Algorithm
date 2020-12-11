@@ -17,6 +17,7 @@ def dij(start):
                 dp[n_n] = weight
                 queue.append([weight,n_n])
     return ck
+
 n,m=map(int,input().split())
 s=[ [] for _ in range (n+1) ]
 for i in range (m):
