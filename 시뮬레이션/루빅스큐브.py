@@ -221,7 +221,6 @@ while inp!='Q':
                 rot(a)
             start = time.time()  # 섞었으므로, start 갱신
             prt()
-
         if inp == 'F':
             rot('F')
             prt()
