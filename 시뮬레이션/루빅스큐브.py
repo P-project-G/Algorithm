@@ -220,7 +220,6 @@ while inp!='Q':
                 a = random.choice(r)
                 rot(a)
             start = time.time()  # 섞었으므로, start 갱신
-            print(start)
             prt()
 
         if inp == 'F':
