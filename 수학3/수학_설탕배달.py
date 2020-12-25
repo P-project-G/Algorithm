@@ -19,7 +19,7 @@ N=int(input())
 cnt=0
 while N>0:
     if(N%5 in [1,2,3,4]):
-        N-=3
+        N-=3r
         cnt+=1
     else:
         N-=5
