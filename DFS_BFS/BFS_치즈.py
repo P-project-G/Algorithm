@@ -1,0 +1,53 @@
+from collections import deque
+import sys
+input = sys.stdin.readline
+
+def bfs():
+    큐 = deque()
+    큐.append([0,0])
+    치즈 = [ [-1]*가로 for _ in range (세로) ]
+    치즈[0][0] = 0
+
+    while 큐:
+        큐_세로, 큐_가로 = 큐.popleft()
+        for k in range (4):
+            큐_세로탐색 = 큐_세로 + 세로탐색[k]
+            큐_가로탐색 = 큐_가로 + 가로탐색[k]
+            if 큐_세로탐색 < 0 or 큐_가로탐색 < 0 or 큐_세로탐색 > 세로-1 or 큐_가로탐색 > 가로-1:
+                continue
+            if 치즈[큐_세로탐색][큐_가로탐색] == -1:
+                if 치즈배열[큐_세로탐색][큐_가로탐색] >= 1:
+                    치즈배열[큐_세로탐색][큐_가로탐색] += 1
+                else:
+                    치즈[큐_세로탐색][큐_가로탐색] = 0
+                    큐.append([큐_세로탐색,큐_가로탐색])
+
+
+
+세로, 가로 = map(int,input().split())
+치즈배열 = [ list(map(int,input().split())) for _ in range (세로) ]
+세로탐색 = [1,-1,0,0]
+가로탐색 = [0,0,1,-1]
+방문 = [ [0]*가로 for _ in range (세로) ]
+
+
+걸린시간 = 0
+남은치즈개수 = []
+while True:
+    bfs()
+    시간 = 0
+    개수 = 0
+
+    for i in range (세로):
+        for j in range (가로):
+            if 치즈배열[i][j] >= 2:
+                치즈배열[i][j] = 0
+                개수 +=1
+                시간 = 1
+    if 시간 == 1:
+        걸린시간 += 1
+        남은치즈개수.append(개수)
+    else:
+        break
+print(걸린시간)
+print(남은치즈개수.pop())
