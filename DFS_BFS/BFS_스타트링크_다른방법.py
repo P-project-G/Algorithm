@@ -7,7 +7,7 @@ def bfs(i):
     queue = deque()
     queue.append([i,1])
     dp = [inf]*(F+1)
-
+    dp[i] = 0
     while queue:
         s,d = queue.popleft()
         if s <= F-U:
