@@ -6,7 +6,7 @@ lan = []
 for i in range (k):
     lan.append(int(input()))
 
-low,high = 0,1000000
+low,high = 0,10000000000
 
 while low <= high:
     mid = (low + high) // 2
