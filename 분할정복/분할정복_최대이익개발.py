@@ -1,3 +1,5 @@
+import math
+answer = [] # 값 확인용
 def MaxValue(row,col,rn,cn):
     mx = 0
     for i in range (row,rn):
@@ -11,16 +13,29 @@ def quadtree(row,col,rn,cn):
 #        return 0
 # 어차피 if rowMiddle != row랑 colMiddle != col에 걸려서 0이 리턴된다.
 
+#    if len(answer)==math.log(n,2)*2: 선택한 값 확인용
+#        print(answer,sum(answer))
+
     rowMiddle = (row+rn)//2
     colMiddle = (col+cn)//2
     a=b=c=d=0
 
     if rowMiddle != row:
+#        answer.append(MaxValue(row,col,rowMiddle,cn))
         a=MaxValue(row,col,rowMiddle,cn)+quadtree(rowMiddle,col,rn,cn)
+#        answer.pop()
+
+#        answer.append(MaxValue(rowMiddle,col,rn,cn))
         b=MaxValue(rowMiddle,col,rn,cn)+quadtree(row,col,rowMiddle,cn)
+#        answer.pop()
     if colMiddle != col:
+#        answer.append(MaxValue(row,col,rn,colMiddle))
         c=MaxValue(row,col,rn,colMiddle)+quadtree(row,colMiddle,rn,cn)
+#        answer.pop()
+
+#        answer.append(MaxValue(row,colMiddle,rn,cn))
         d=MaxValue(row,colMiddle,rn,cn)+quadtree(row,col,rn,colMiddle)
+#        answer.pop()
 
     iMax = a if a > b else b
     iMax = iMax if iMax > c else c
